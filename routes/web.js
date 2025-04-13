@@ -19,6 +19,8 @@ route.get("/courseDetails", checkAuth, FrontController.courseDetails);
 
 // profile
 route.get("/profile", checkAuth, FrontController.profile);
+route.post("/updateProfile", checkAuth, FrontController.updateProfile);
+route.post("/changePassword", checkAuth, FrontController.changePassword);
 
 // logout
 route.get("/logout", FrontController.logout);
@@ -30,5 +32,7 @@ route.get("/admin/allCourses", checkAuth, AdminController.allCourses);
 route.get("/admin/addCourse", checkAuth, AdminController.addCourse);
 route.get("/admin/update_pass", checkAuth, AdminController.update_pass);
 route.get("/admin/profile_update", checkAuth, AdminController.profile_update);
+route.post("/admin/changePassword", checkAuth, AdminController.changePassword);
+route.post("/admin/updateProfile", checkAuth, AdminController.updateProfile);
 
 module.exports = route;

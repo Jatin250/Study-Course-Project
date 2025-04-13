@@ -1,7 +1,6 @@
 <%- include('./header.ejs') %>
     <%- include('./sidebar.ejs')%>
 
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -27,9 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title text-center"> Update profile </h3>
-                            <% if(msg.length>0){%>
+                            <% if(msg1.length>0){%>
                                 <div class="alert alert-success text-center">
-                                    <%= msg %>
+                                    <%= msg1 %>
                                 </div>
                                 <%}%>
                         </div>
@@ -89,11 +88,7 @@
         </div>
         <!-- /.content-header -->
 
-
         </div>
         <!-- /.content-wrapper -->
-
-
-
 
         <%- include('./footer.ejs') %>
