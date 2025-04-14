@@ -1,52 +1,56 @@
-import mongoose from "mongoose";
-
-const courseSchema = new mongoose.Schema(
+const mongoose = require("mongoose");
+const CourseSchema = mongoose.Schema(
   {
-    courseTitle: {
+    courseName: {
       type: String,
       required: true,
     },
-    subTitle: { type: String },
-    description: { type: String },
-    category: {
+    courseImage: {
+      public_id_1: {
+        type: String,
+        required: true,
+      },
+      url_1: {
+        type: String,
+        required: true,
+      },
+    },
+    coursePrize: {
+      type: String,
+      required: true,
+    },
+    teacherName: {
+      type: String,
+      required: true,
+    },
+    expYear: {
+      type: String,
+      required: true,
+    },
+    teacherImage: {
+      public_id_2: {
+        type: String,
+        required: true,
+      },
+      url_2: {
+        type: String,
+        required: true,
+      },
+    },
+    numOfLesson: {
+      type: String,
+      required: true,
+    },
+    courseDuration: {
       type: String,
       required: true,
     },
     courseLevel: {
       type: String,
-      enum: ["Beginner", "Medium", "Advance"],
+      required: true,
     },
-    coursePrice: {
-      type: Number,
-    },
-    courseThumbnail: {
-      type: String,
-    },
-    enrolledStudents: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    lectures: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Lecture",
-      },
-    ],
-    creator: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    isPublished: {
-      type: Boolean,
-      default: false,
-    },
-    // image:{
-    //     type:file
-    // }
   },
   { timestamps: true }
 );
-
-export const Course = mongoose.model("Course", courseSchema);
+const CourseModel = mongoose.model("course", CourseSchema);
+module.exports = CourseModel;

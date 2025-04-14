@@ -42,41 +42,54 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
-
                                 <form action="/admin/addNewCourse" method="post" enctype="multipart/form-data">
                                     <div class="mb-3">
-                                        <label for="">Course Name</label>
+                                        <label for="">Course Title</label>
                                         <input type="text" name="courseName" placeholder="web Devlopment"
-                                            class="form-control">
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Course Image</label>
+                                        <input type="file" name="courseImage" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">Course Prize</label>
-                                        <input type="text" name="coursePrize" placeholder="399" class="form-control">
+                                        <input type="text" name="coursePrize" placeholder="399" class="form-control"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">Teacher Name</label>
                                         <input type="text" name="teacherName" placeholder="Vikas Jain"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Course Image</label>
-                                        <input type="file" name="courseImage" class="form-control">
+                                        <label for="">Experience Years</label>
+                                        <input type="text" name="expYear" placeholder="2" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Image</label>
+                                        <input type="file" name="teacherImage" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">No. of Lessons</label>
-                                        <input type="number" name="numOfLesson" placeholder="45" class="form-control">
+                                        <input type="number" name="numOfLesson" placeholder="45" class="form-control"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">Course Duration</label>
                                         <input type="text" name="courseDuration" placeholder="38h,45min"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Experience Years</label>
-                                        <input type="text" name="expYear" placeholder="2" class="form-control">
+                                        <label for="sec">Course Level</label>
+                                        <select name="courseLevel" id="sec" required>
+                                            <option value="">Select</option>
+                                            <option value="Beginner">Beginner</option>
+                                            <option value="Entery level">Entery level</option>
+                                            <option value="Advance">Advance</option>
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-success text-white">Add Course</button>
-
                                 </form>
                             </table>
                         </div>

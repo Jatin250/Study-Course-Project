@@ -2,6 +2,14 @@ const contactModel = require("../../models/contact");
 const UserModel = require("../../models/user");
 const cloudinary = require("cloudinary");
 const bcrypt = require("bcrypt");
+const CourseModel = require("../../models/course");
+
+// configuration Setup
+cloudinary.config({
+  cloud_name: "dkpr89ars",
+  api_key: "525114599641279",
+  api_secret: "T96YdvUrKMsDhb1vxfsux2sbftA",
+});
 
 class AdminController {
   static dashboard = async (req, res) => {
@@ -36,10 +44,12 @@ class AdminController {
   static allCourses = async (req, res) => {
     try {
       const { name, image, email } = req.udata;
+      const course = await CourseModel.find();
       res.render("admin/allCourses", {
         n: name,
         i: image,
         e: email,
+        c: course,
       });
     } catch (error) {
       console.log(error);
@@ -161,6 +171,68 @@ class AdminController {
       await UserModel.findByIdAndUpdate(id, data);
       req.flash("success", "Profile Update by Admin successfully");
       res.redirect("/admin/profile_update");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static addNewCourse = async (req, res) => {
+    try {
+      // console.log(req.body);
+      const {
+        courseName,
+        courseImage,
+        coursePrize,
+        teacherName,
+        expYear,
+        teacherImage,
+        numOfLesson,
+        courseDuration,
+        courseLevel,
+      } = req.body;
+
+      // image UpLoad
+      // console.log(req.files.courseImage);
+      const file1 = req.files.courseImage;
+      const imageUpload1 = await cloudinary.uploader.upload(
+        file1.tempFilePath,
+        {
+          folder: "userprofile",
+        }
+      );
+      // console.log(imageUpload1);
+
+      // console.log(req.files.teacherImage);
+      const file2 = req.files.teacherImage;
+      const imageUpload2 = await cloudinary.uploader.upload(
+        file2.tempFilePath,
+        {
+          folder: "userprofile",
+        }
+      );
+      // console.log(imageUpload2);
+
+      const data = await CourseModel.create({
+        courseName,
+        courseImage: {
+          public_id_1: imageUpload1.public_id,
+          url_1: imageUpload1.secure_url,
+        },
+        coursePrize,
+        teacherName,
+        expYear,
+        teacherImage: {
+          public_id_2: imageUpload2.public_id,
+          url_2: imageUpload2.secure_url,
+        },
+        numOfLesson,
+        courseDuration,
+        courseLevel,
+      });
+      if (data) {
+        req.flash("success", "Course Register Successfully..!!");
+        res.redirect("/admin/addCourse");
+      }
     } catch (error) {
       console.log(error);
     }
