@@ -218,394 +218,87 @@
                     </li>
                 </ul>
                 <div class="row filter-layout">
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item design marketing">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/HTML.png" alt="">
+                    <% c.forEach((item,index)=>{%>
+                        <!--Courses Two Single Start-->
+                        <div class="col-xl-4 col-lg-6 col-md-6 filter-item design marketing">
+                            <div class="courses-two__single">
+                                <div class="courses-two__img-box">
+                                    <div class="courses-two__img">
+                                        <img style="width: 368px; height: 230px;" src="<%= item.courseImage.url_1%>"
+                                            alt="">
+                                    </div>
+                                    <!-- <div class="courses-two__heart">
+                                <a href="/courseDetails"><span class="icon-heart"></span></a>
+                            </div> -->
                                 </div>
-                                <!-- <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div> -->
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$240.00</p>
+                                <div class="courses-two__content">
+                                    <div class="courses-two__doller-and-review">
+                                        <div class="courses-two__doller">
+                                            <p>
+                                                &#8377;<%= item.coursePrize %>
+                                            </p>
+                                        </div>
+                                        <div class="courses-two__review">
+                                            <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
+                                        </div>
                                     </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
+                                    <h3 class="courses-two__title"><a href="/courseDetails">
+                                            <%= item.courseName %>
+                                        </a></h3>
+                                    <div class="courses-two__btn-and-client-box">
+                                        <div class="courses-two__btn-box">
+                                            <a href="/courseDetails" class="thm-btn-two">
+                                                <span>Enroll Now</span>
+                                                <i class="icon-angles-right"></i>
+                                            </a>
+                                        </div>
+                                        <div class="courses-two__client-box">
+                                            <div class="courses-two__client-img">
+                                                <img style="width: 40px; height: 40px;"
+                                                    src="<%= item.teacherImage.url_2%>" alt="">
+                                            </div>
+                                            <div class="courses-two__client-content">
+                                                <h4>
+                                                    <%= item.teacherName %>
+                                                </h4>
+                                                <p><span>
+                                                        <%= item.expYear %>
+                                                    </span><i>+</i>
+                                                    Years Experian</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <ul class="courses-two__meta list-unstyled">
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-chart-simple"></span>
+                                            </div>
+                                            <p>
+                                                <%= item.courseLevel %>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-book"></span>
+                                            </div>
+                                            <p>
+                                                <%= item.numOfLesson %> Lesson
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-clock"></span>
+                                            </div>
+                                            <p>
+                                                <%= item.courseDuration %>
+                                            </p>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails">Getting Started with
-                                        Computers and Beginner's Guide to Basic Skills</a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-1.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Sarah Alison</h4>
-                                            <p><span class="odometer" data-count="12">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Beginner</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>45 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>620h, 55min</p>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <!--Courses Two Single End-->
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item design programming">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/CSS.png" alt="">
-                                </div>
-                                <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div>
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$120.00</p>
-                                    </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                    </div>
-                                </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails">Cooking Made Easy:
-                                        Essential
-                                        Skills for Everyday Meals</a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-2.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Mitchel March</h4>
-                                            <p><span class="odometer" data-count="20">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Advance</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>120 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>12h, 55min</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Courses Two Single End-->
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item programming marketing">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/HTML.png" alt="">
-                                </div>
-                                <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div>
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$640.00</p>
-                                    </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                    </div>
-                                </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails">Graphic Design Basics:
-                                        Learn
-                                        the Foundations of Visual </a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-3.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Mr. Harry</h4>
-                                            <p><span class="odometer" data-count="5">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Entry Level</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>45 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>620h, 55min</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Courses Two Single End-->
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item marketing">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/HTML.png" alt="">
-                                </div>
-                                <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div>
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$350.00</p>
-                                    </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                    </div>
-                                </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails">Photography for
-                                        Everyone: How
-                                        to Capture Stunning Photos with Ease</a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-4.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Alisa Olivia</h4>
-                                            <p><span class="odometer" data-count="8">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Advance</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>80 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>156h, 55min</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Courses Two Single End-->
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item marketing">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/HTML.png" alt="">
-                                </div>
-                                <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div>
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$150.00</p>
-                                    </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                    </div>
-                                </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails">Writing Made Simple:
-                                        From
-                                        Ideas to Finished Pieces for All Levels</a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-5.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Jordan Walk</h4>
-                                            <p><span class="odometer" data-count="16">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Medium</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>45 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>326h, 55min</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Courses Two Single End-->
-                    <!--Courses Two Single Start-->
-                    <div class="col-xl-4 col-lg-6 col-md-6 filter-item design marketing">
-                        <div class="courses-two__single">
-                            <div class="courses-two__img-box">
-                                <div class="courses-two__img">
-                                    <img style="width: 368px; height: 230px;" src="/assets/my-image/HTML.png" alt="">
-                                </div>
-                                <div class="courses-two__heart">
-                                    <a href="/courseDetails"><span class="icon-heart"></span></a>
-                                </div>
-                            </div>
-                            <div class="courses-two__content">
-                                <div class="courses-two__doller-and-review">
-                                    <div class="courses-two__doller">
-                                        <p>$290.00</p>
-                                    </div>
-                                    <div class="courses-two__review">
-                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                    </div>
-                                </div>
-                                <h3 class="courses-two__title"><a href="/courseDetails"> A Beginner’s Guide to
-                                        Building Your Online Presence"</a></h3>
-                                <div class="courses-two__btn-and-client-box">
-                                    <div class="courses-two__btn-box">
-                                        <a href="/courseDetails" class="thm-btn-two">
-                                            <span>Enroll Now</span>
-                                            <i class="icon-angles-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="courses-two__client-box">
-                                        <div class="courses-two__client-img">
-                                            <img src="assets/images/resources/courses-two-client-img-6.jpg" alt="">
-                                        </div>
-                                        <div class="courses-two__client-content">
-                                            <h4>Aman Ellison</h4>
-                                            <p><span class="odometer" data-count="12">00</span><i>+</i>
-                                                Years Experian</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="courses-two__meta list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-chart-simple"></span>
-                                        </div>
-                                        <p>Beginner</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-book"></span>
-                                        </div>
-                                        <p>45 Lesson</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-clock"></span>
-                                        </div>
-                                        <p>620h, 55min</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Courses Two Single End-->
+                        <!--Courses Two Single End-->
+                        <%})%>
                 </div>
             </div>
         </div>

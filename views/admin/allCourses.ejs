@@ -25,87 +25,62 @@
                 <div class="container-fluid">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                            <h3 class="card-title">Courses Data with default features</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>S.No</th>
-                                        <th>courseName</th>
-                                        <th>courseImage</th>
-                                        <th>coursePrize</th>
-                                        <th>teacherName</th>
-                                        <th>expYear</th>
-                                        <th>teacherImage</th>
-                                        <th>numOfLesson</th>
-                                        <th>courseDuration</th>
-                                        <th>courseLevel</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% c.forEach((item,index)=>{ %>
-                                        <tr>
-                                            <td>
-                                                <%= index+1 %>
-                                            </td>
-                                            <td>
-                                                <%= item.courseName %>
-                                            </td>
-                                            <td style="display: flex; align-items: center; justify-content: center;">
-                                                <img src="<%= item.courseImage.url_1%>" alt="" height="50px"
-                                                    width="50px" style="border-radius: 50%;">
-                                            </td>
-                                            <td>
-                                                <%= item.coursePrize %>
-                                            </td>
+                            <% c.forEach((item,index)=>{%>
+                                <div class="card d-inline-block m-1 p-2" style="width: 265px;">
+                                    <img class="card-img-top" style="height: 150px; width:100%;"
+                                        src="<%= item.courseImage.url_1%>" alt="Card image cap">
+                                    <div class="d-flex pt-2 justify-content-between">
+                                        <div class="">
+                                            <p>Price: &#8377;<%= item.coursePrize %>
+                                            </p>
+                                        </div>
+                                        <div class="">
+                                            <p><i class="fa-solid fa-star" style="color: #FFC224"></i> 4.5 <span>(129
+                                                    Reviews)</span></p>
+                                        </div>
+                                    </div>
+                                    <h3 class="font-weight-bold">
+                                        <%= item.courseName %>
+                                    </h3>
+                                    <div class="d-flex d-block pt-2 justify-content-between">
+                                        <div class="">
+                                            <p>Teacher: <%= item.teacherName %>
+                                            </p>
+                                        </div>
 
-                                            <td>
-                                                <%= item.teacherName %>
-                                            </td>
-                                            <td>
-                                                <%= item.expYear %>
-                                            </td>
-                                            <td style="display: flex; align-items: center; justify-content: center;">
-                                                <img src="<%= item.teacherImage.url_2%>" alt="" height="50px"
-                                                    width="50px" style="border-radius: 50%;">
-                                            </td>
-                                            <td>
-                                                <%= item.numOfLesson %>
-                                            </td>
-                                            <td>
-                                                <%= item.courseDuration %>
-                                            </td>
-                                            <td>
-                                                <%= item.courseLevel %>
-                                            </td>
-                                            <td>
-                                                <a href="/admin/courseView/<%= item.id %>"
-                                                    class="btn btn-primary">View</a>
-                                                <a href="/admin/courseEdit/<%= item.id %>" class="btn btn-info">Edit</a>
-                                                <a href="/admin/courseDelete/<%= item.id %>"
-                                                    class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-
-                                        <% }) %>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>S.No</th>
-                                        <th>courseName</th>
-                                        <th>courseImage</th>
-                                        <th>coursePrize</th>
-                                        <th>teacherName</th>
-                                        <th>expYear</th>
-                                        <th>teacherImage</th>
-                                        <th>numOfLesson</th>
-                                        <th>courseDuration</th>
-                                        <th>courseLevel</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                                        <div class="">
+                                            <img class="" style="height: 30px; width: 30px; border-radius: 50%;"
+                                                src="<%= item.teacherImage.url_2%>" alt="teacherImage">
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <p>
+                                            Expirience: <%= item.expYear %> years
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p>
+                                            No. of Lesson: <%= item.numOfLesson %>
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p>
+                                            Course Duration: <%= item.courseDuration %>
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <p>
+                                            Course Level: <%= item.courseLevel %>
+                                        </p>
+                                    </div>
+                                    <a href="/admin/viewCourse/<%= item.id %>" class="btn btn-primary mt-3">View
+                                        Course</a>
+                                </div>
+                                <%})%>
                         </div>
                         <!-- /.card-body -->
                     </div>

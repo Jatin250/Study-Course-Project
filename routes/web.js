@@ -35,5 +35,13 @@ route.get("/admin/profile_update", checkAuth, AdminController.profile_update);
 route.post("/admin/changePassword", checkAuth, AdminController.changePassword);
 route.post("/admin/updateProfile", checkAuth, AdminController.updateProfile);
 route.post("/admin/addNewCourse", checkAuth, AdminController.addNewCourse);
+route.get("/admin/viewCourse/:id", checkAuth, AdminController.viewCourse);
+route.get("/admin/editCourse/:id", checkAuth, AdminController.editCourse);
+route.get("/admin/deleteCourse/:id", checkAuth, AdminController.deleteCourse);
+route.post(
+  "/admin/update_Course/:id",
+  checkAuth,
+  AdminController.update_course
+);
 
 module.exports = route;

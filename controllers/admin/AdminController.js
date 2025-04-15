@@ -237,6 +237,91 @@ class AdminController {
       console.log(error);
     }
   };
+
+  static viewCourse = async (req, res) => {
+    try {
+      const { name, image, email } = req.udata;
+      const id = req.params.id;
+      // console.log(id)
+      const course = await CourseModel.findById(id);
+      // console.log(course)
+      res.render("admin/viewCourse", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+        msg: req.flash("error"),
+        msg1: req.flash("success"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static editCourse = async (req, res) => {
+    try {
+      const { name, image, email } = req.udata;
+      const id = req.params.id;
+      // console.log(id)
+      const course = await CourseModel.findById(id);
+      // console.log(course)
+      res.render("admin/editCourse", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+        msg: req.flash("error"),
+        msg1: req.flash("success"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static deleteCourse = async (req, res) => {
+    try {
+      const { name, image, email } = req.udata;
+      const id = req.params.id;
+      // console.log(id)
+      const course = await CourseModel.findByIdAndDelete(id);
+      // console.log(course)
+      res.redirect("/admin/allCourses");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static update_course = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const {
+        courseName,
+        courseImage,
+        coursePrize,
+        teacherName,
+        expYear,
+        teacherImage,
+        numOfLesson,
+        courseDuration,
+        courseLevel,
+      } = req.body;
+      await CourseModel.findByIdAndUpdate(id, {
+        courseName,
+        courseImage,
+        coursePrize,
+        teacherName,
+        expYear,
+        teacherImage,
+        numOfLesson,
+        courseDuration,
+        courseLevel,
+      });
+      req.flash("success", "Course updated successfully by Admin.");
+      res.redirect("/admin/allCourses");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 module.exports = AdminController;

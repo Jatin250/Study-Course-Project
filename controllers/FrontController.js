@@ -3,6 +3,7 @@ const ContactModel = require("../models/contact");
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const jwt = require("jsonwebtoken");
+const CourseModel = require("../models/course");
 
 // configuration Setup
 cloudinary.config({
@@ -14,7 +15,9 @@ cloudinary.config({
 class FrontController {
   static home = async (req, res) => {
     try {
+      const course = await CourseModel.find();
       res.render("home", {
+        c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
       });
