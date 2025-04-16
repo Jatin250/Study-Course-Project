@@ -294,6 +294,7 @@ class AdminController {
   static update_course = async (req, res) => {
     try {
       const id = req.params.id;
+      // console.log(req.body);
       const {
         courseName,
         courseImage,
@@ -305,17 +306,84 @@ class AdminController {
         courseDuration,
         courseLevel,
       } = req.body;
-      await CourseModel.findByIdAndUpdate(id, {
-        courseName,
-        courseImage,
-        coursePrize,
-        teacherName,
-        expYear,
-        teacherImage,
-        numOfLesson,
-        courseDuration,
-        courseLevel,
-      });
+
+      if (req.files) {
+        if (req.files.courseImage) {
+          // console.log("test-1");
+          const course = await CourseModel.findById(id);
+          // console.log(course);
+          const courseImageID = course.courseImage.public_id_1;
+          // console.log(courseImageID);
+
+          //deleting image from Cloudinary
+          await cloudinary.uploader.destroy(courseImageID);
+          //new image update
+          const imagefile = req.files.courseImage;
+          const imageUpload = await cloudinary.uploader.upload(
+            imagefile.tempFilePath,
+            {
+              folder: "userprofile",
+            }
+          );
+          var data = {
+            courseName,
+            courseImage: {
+              public_id_1: imageUpload.public_id,
+              url_1: imageUpload.secure_url,
+            },
+            coursePrize,
+            teacherName,
+            expYear,
+            numOfLesson,
+            courseDuration,
+            courseLevel,
+          };
+        }
+        if (req.files.teacherImage) {
+          // console.log("test-2");
+          const course = await CourseModel.findById(id);
+          // console.log(course);
+          const teacherImageID = course.teacherImage.public_id_2;
+          // console.log(teacherImageID);
+
+          //deleting image from Cloudinary
+          await cloudinary.uploader.destroy(teacherImageID);
+          //new image update
+          const imagefile = req.files.teacherImage;
+          const imageUpload = await cloudinary.uploader.upload(
+            imagefile.tempFilePath,
+            {
+              folder: "userprofile",
+            }
+          );
+          var data = {
+            courseName,
+            coursePrize,
+            teacherName,
+            expYear,
+            teacherImage: {
+              public_id_2: imageUpload.public_id,
+              url_2: imageUpload.secure_url,
+            },
+            numOfLesson,
+            courseDuration,
+            courseLevel,
+          };
+        }
+      } else {
+        // console.log("test-3");
+        var data = {
+          courseName: courseName,
+          coursePrize,
+          teacherName,
+          expYear,
+          numOfLesson,
+          courseDuration,
+          courseLevel,
+        };
+      }
+
+      await CourseModel.findByIdAndUpdate(id, data);
       req.flash("success", "Course updated successfully by Admin.");
       res.redirect("/admin/allCourses");
     } catch (error) {
