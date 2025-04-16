@@ -308,7 +308,44 @@ class AdminController {
       } = req.body;
 
       if (req.files) {
-        if (req.files.courseImage) {
+        // for both images change
+        if (req.files.courseImage && req.files.teacherImage) {
+          // console.log("test-1");
+          const course = await CourseModel.findById(id);
+          const courseImageID = course.courseImage.public_id_1;
+          const teacherImageID = course.teacherImage.public_id_2;
+
+          //deleting image from Cloudinary
+          await cloudinary.uploader.destroy(courseImageID);
+          await cloudinary.uploader.destroy(teacherImageID);
+          //new image update
+          const imagefile1 = req.files.courseImage;
+          const imagefile2 = req.files.teacherImage;
+          const imageUpload = await cloudinary.uploader.upload(
+            imagefile1.tempFilePath,
+            imagefile2.tempFilePath,
+            {
+              folder: "userprofile",
+            }
+          );
+          var data = {
+            courseName,
+            courseImage: {
+              public_id_1: imageUpload.public_id,
+              url_1: imageUpload.secure_url,
+            },
+            coursePrize,
+            teacherName,
+            expYear,
+            teacherImage: {
+              public_id_2: imageUpload.public_id,
+              url_2: imageUpload.secure_url,
+            },
+            numOfLesson,
+            courseDuration,
+            courseLevel,
+          };
+        } else if (req.files.courseImage) {
           // console.log("test-1");
           const course = await CourseModel.findById(id);
           // console.log(course);
@@ -338,8 +375,7 @@ class AdminController {
             courseDuration,
             courseLevel,
           };
-        }
-        if (req.files.teacherImage) {
+        } else {
           // console.log("test-2");
           const course = await CourseModel.findById(id);
           // console.log(course);
