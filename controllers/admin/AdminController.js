@@ -409,7 +409,7 @@ class AdminController {
       } else {
         // console.log("test-3");
         var data = {
-          courseName: courseName,
+          courseName,
           coursePrize,
           teacherName,
           expYear,
