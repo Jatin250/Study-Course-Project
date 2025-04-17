@@ -321,8 +321,13 @@ class AdminController {
           //new image update
           const imagefile1 = req.files.courseImage;
           const imagefile2 = req.files.teacherImage;
-          const imageUpload = await cloudinary.uploader.upload(
+          const imageUpload1 = await cloudinary.uploader.upload(
             imagefile1.tempFilePath,
+            {
+              folder: "userprofile",
+            }
+          );
+          const imageUpload2 = await cloudinary.uploader.upload(
             imagefile2.tempFilePath,
             {
               folder: "userprofile",
@@ -331,15 +336,15 @@ class AdminController {
           var data = {
             courseName,
             courseImage: {
-              public_id_1: imageUpload.public_id,
-              url_1: imageUpload.secure_url,
+              public_id_1: imageUpload1.public_id,
+              url_1: imageUpload1.secure_url,
             },
             coursePrize,
             teacherName,
             expYear,
             teacherImage: {
-              public_id_2: imageUpload.public_id,
-              url_2: imageUpload.secure_url,
+              public_id_2: imageUpload2.public_id,
+              url_2: imageUpload2.secure_url,
             },
             numOfLesson,
             courseDuration,
