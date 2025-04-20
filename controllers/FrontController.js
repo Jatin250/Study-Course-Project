@@ -293,7 +293,9 @@ class FrontController {
   // logout
   static logout = async (req, res) => {
     try {
+      const course = await CourseModel.find();
       res.render("home", {
+        c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
       });
