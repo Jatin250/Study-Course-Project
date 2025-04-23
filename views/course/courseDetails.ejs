@@ -7,31 +7,40 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="course-details__left">
                         <div class="course-details__img">
-                            <img src="assets/images/resources/course-details-img-1.jpg" alt="">
+                            <img src="<%= c.courseImage.url_1%>" alt="">
                         </div>
                         <div class="course-details__content">
                             <div class="course-details__tag-box">
                                 <div class="course-details__tag-shape"></div>
-                                <span class="course-details__tag">Web Programming</span>
+                                <span class="course-details__tag">
+                                    <%= c.courseName%>
+                                </span>
                             </div>
-                            <h3 class="course-details__title">Master Python Programming for<br>
-                                Beginners and Beyond</h3>
+                            <h3 class="course-details__title">Master <%= c.courseName%>
+                            </h3>
                             <div class="course-details__client-and-ratting-box">
                                 <div class="course-details__client-box">
                                     <div class="course-details__client-img">
-                                        <img src="assets/images/resources/course-details-client-img-1.jpg" alt="">
+                                        <img src="<%= c.teacherImage.url_2%>" alt="">
                                     </div>
                                     <div class="course-details__client-content">
-                                        <p><span class="odometer" data-count="20">00</span>+
+                                        <p><span class="" data-count="">
+                                                <%=c.expYear%>
+                                            </span>+
                                             Years Experiance</p>
-                                        <h4>Jordan Walk</h4>
+                                        <h4>
+                                            <%=c.teacherName%>
+                                        </h4>
                                     </div>
                                 </div>
                                 <div class="course-details__ratting-box-1">
                                     <ul class="course-details__ratting-list-1 list-unstyled">
                                         <li>
                                             <p>Last Update</p>
-                                            <h4>January 02, 2025</h4>
+                                            <h4>
+                                                <%= (c.updatedAt).toLocaleDateString('en-GB', { day: '2-digit' ,
+                                                    month: 'short' , year: 'numeric' });%>
+                                            </h4>
                                         </li>
                                         <li>
                                             <p>Available</p>
@@ -974,7 +983,8 @@
                                 </a>
                             </div>
                             <div class="course-details__doller-and-btn-box">
-                                <h3 class="course-details__doller">$120.00</h3>
+                                <h3 class="course-details__doller">&#8377;<%= c.coursePrize %>
+                                </h3>
                                 <div class="course-details__doller-btn-box">
                                     <a href="course-details.html" class="thm-btn-two">
                                         <span>Enroll Now</span>
@@ -985,10 +995,10 @@
                             <div class="course-details__social-box">
                                 <h5 class="course-details__social-title">Share Course</h5>
                                 <div class="course-details__social-list">
-                                    <a href="#"><span class="fab fa-linkedin-in"></span></a>
-                                    <a href="#"><span class="fab fa-pinterest-p"></span></a>
-                                    <a href="#"><span class="fab fa-facebook-f"></span></a>
-                                    <a href="#"><span class="fab fa-instagram"></span></a>
+                                    <a href=""><span class="fab fa-linkedin-in"></span></a>
+                                    <a href=""><span class="fab fa-pinterest-p"></span></a>
+                                    <a href=""><span class="fab fa-facebook-f"></span></a>
+                                    <a href=""><span class="fab fa-instagram"></span></a>
                                 </div>
                             </div>
                             <div class="course-details__info-list">
@@ -996,15 +1006,21 @@
                                 <ul class="course-details__info-list-1 list-unstyled">
                                     <li>
                                         <p><i class="icon-book"></i>Lesson</p>
-                                        <span>50</span>
+                                        <span>
+                                            <%= c.numOfLesson %>
+                                        </span>
                                     </li>
                                     <li>
                                         <p><i class="icon-clock"></i>Duration</p>
-                                        <span>30h, 20m</span>
+                                        <span>
+                                            <%= c.courseDuration %>
+                                        </span>
                                     </li>
                                     <li>
                                         <p><i class="icon-chart-simple"></i>Skill Level</p>
-                                        <span>Advance</span>
+                                        <span>
+                                            <%= c.courseLevel %>
+                                        </span>
                                     </li>
                                     <li>
                                         <p><i class="icon-globe"></i>Language</p>

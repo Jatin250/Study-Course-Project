@@ -26,6 +26,45 @@ class FrontController {
     }
   };
 
+  static about = async (req, res) => {
+    try {
+      const course = await CourseModel.find();
+      res.render("about", {
+        c: course,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static course = async (req, res) => {
+    try {
+      const course = await CourseModel.find();
+      res.render("course", {
+        c: course,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static contact = async (req, res) => {
+    try {
+      const course = await CourseModel.find();
+      res.render("contact", {
+        c: course,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   static login = async (req, res) => {
     try {
       res.render("login", {
@@ -166,7 +205,7 @@ class FrontController {
 
       if (!name || !email || !phone || !message) {
         req.flash("error", "All fields are Required.");
-        return res.redirect("/");
+        return res.redirect("/contact");
       }
 
       await ContactModel.create({
@@ -176,7 +215,7 @@ class FrontController {
         message,
       });
       req.flash("success", "Submitted Successfully !");
-      res.redirect("/");
+      res.redirect("/contact");
     } catch (error) {
       console.log(error);
     }
@@ -185,12 +224,14 @@ class FrontController {
   // courseDetails
   static courseDetails = async (req, res) => {
     try {
-      const { id, name, image } = req.udata;
-      await UserModel.find({ user_id: id });
+      const { name, image } = req.udata;
+      const id = req.params.id;
+      const course = await CourseModel.findById(id);
       // console.log(course);
       res.render("course/courseDetails", {
         n: name,
         i: image,
+        c: course,
       });
     } catch (error) {
       console.log(error);
