@@ -24,45 +24,45 @@
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.min.css" />
-    <link rel="stylesheet" href="assets/css/custom-animate.css" />
-    <link rel="stylesheet" href="assets/css/swiper.min.css" />
-    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
-    <link rel="stylesheet" href="assets/css/jarallax.css" />
-    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/css/nice-select.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
-    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="/assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="/assets/css/jarallax.css" />
+    <link rel="stylesheet" href="/assets/css/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/css/odometer.min.css" />
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/assets/css/nice-select.css" />
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/assets/css/aos.css" />
 
 
-    <link rel="stylesheet" href="assets/css/module-css/slider.css" />
-    <link rel="stylesheet" href="assets/css/module-css/footer.css" />
-    <link rel="stylesheet" href="assets/css/module-css/sliding-text.css" />
-    <link rel="stylesheet" href="assets/css/module-css/category.css" />
-    <link rel="stylesheet" href="assets/css/module-css/about.css" />
-    <link rel="stylesheet" href="assets/css/module-css/courses.css" />
-    <link rel="stylesheet" href="assets/css/module-css/why-choose.css" />
-    <link rel="stylesheet" href="assets/css/module-css/live-class.css" />
-    <link rel="stylesheet" href="assets/css/module-css/video-one.css" />
-    <link rel="stylesheet" href="assets/css/module-css/blog.css" />
-    <link rel="stylesheet" href="assets/css/module-css/counter.css" />
-    <link rel="stylesheet" href="assets/css/module-css/team.css" />
-    <link rel="stylesheet" href="assets/css/module-css/newsletter.css" />
-    <link rel="stylesheet" href="assets/css/module-css/testimonial.css" />
-    <link rel="stylesheet" href="assets/css/module-css/contact.css" />
-    <link rel="stylesheet" href="assets/css/module-css/pricing.css" />
-    <link rel="stylesheet" href="assets/css/module-css/process.css" />
-    <link rel="stylesheet" href="assets/css/module-css/event.css" />
-    <link rel="stylesheet" href="assets/css/module-css/courses-search.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/slider.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/footer.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/sliding-text.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/category.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/about.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/courses.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/why-choose.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/live-class.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/video-one.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/blog.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/counter.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/team.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/newsletter.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/testimonial.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/contact.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/pricing.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/process.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/event.css" />
+    <link rel="stylesheet" href="/assets/css/module-css/courses-search.css" />
 
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 </head>
 
 <body class="custom-cursor">
@@ -157,6 +157,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <% if(false){%>
+                                <div class="main-menu__right">
+                                    <div>
+                                        <ul style="list-style: none; display: flex;">
+                                            <li class="nav-item my-auto">
+                                                <a class="nav-link text-gray" href="/courseDetails">
+                                                    <%= n %>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item dropdown my-auto">
+                                                <a href="/"
+                                                    class="nav-link d-block link-body-emphasis text-decoration-none dropdown-toggle text-white"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <img src="<%= i.url %>" alt="mdo" width="45" height="40"
+                                                        class="rounded-circle">
+                                                </a>
+                                                <ul class="dropdown-menu text-small">
+                                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <%}%>
                         </div>
                     </div>
                 </div>
