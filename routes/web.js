@@ -15,7 +15,7 @@ route.post("/registerUser", FrontController.registerUser);
 route.post("/userLogin", FrontController.userLogin);
 
 // contactByUser
-route.post("/contactByUser", checkAuth, FrontController.contactByUser);
+route.post("/contactByUser", FrontController.contactByUser);
 
 // courseDetails
 route.get("/courseDetails/:id", FrontController.courseDetails);

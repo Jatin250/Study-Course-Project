@@ -203,19 +203,13 @@ class FrontController {
       // console.log(req.body);
       const { name, email, phone, message } = req.body;
 
-      if (!name || !email || !phone || !message) {
-        req.flash("error", "All fields are Required.");
-        return res.redirect("/contact");
-      }
-
       await ContactModel.create({
         name,
         email,
         phone,
         message,
       });
-      req.flash("success", "Submitted Successfully !");
-      res.redirect("/contact");
+      res.redirect("/");
     } catch (error) {
       console.log(error);
     }
