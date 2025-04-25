@@ -29,80 +29,135 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>courseName</th>
-                                        <th>courseImage</th>
-                                        <th>coursePrize</th>
-                                        <th>teacherName</th>
-                                        <th>expYear</th>
-                                        <th>teacherImage</th>
-                                        <th>numOfLesson</th>
-                                        <th>courseDuration</th>
-                                        <th>courseLevel</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <%= c.id %>
-                                        </td>
-                                        <td>
-                                            <%= c.courseName %>
-                                        </td>
-                                        <td style="display: flex; align-items: center; justify-content: center;">
-                                            <img src="<%= c.courseImage.url_1%>" alt="" height="50px" width="50px"
-                                                style="border-radius: 50%;">
-                                        </td>
-                                        <td>
-                                            &#8377;<%= c.coursePrize %>
-                                        </td>
-
-                                        <td>
-                                            <%= c.teacherName %>
-                                        </td>
-                                        <td>
-                                            <%= c.expYear %>
-                                        </td>
-                                        <td style="display: flex; align-items: center; justify-content: center;">
-                                            <img src="<%= c.teacherImage.url_2%>" alt="" height="50px" width="50px"
-                                                style="border-radius: 50%;">
-                                        </td>
-                                        <td>
-                                            <%= c.numOfLesson %>
-                                        </td>
-                                        <td>
-                                            <%= c.courseDuration %>
-                                        </td>
-                                        <td>
-                                            <%= c.courseLevel %>
-                                        </td>
-                                        <td>
-                                            <!-- <a href="/admin/viewCourse/<%= c.id %>" class="btn btn-primary">View</a> -->
-                                            <a href="/admin/editCourse/<%= c.id %>" class="btn btn-info">Edit</a>
-                                            <a href="/admin/deleteCourse/<%= c.id %>" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>courseName</th>
-                                        <th>courseImage</th>
-                                        <th>coursePrize</th>
-                                        <th>teacherName</th>
-                                        <th>expYear</th>
-                                        <th>teacherImage</th>
-                                        <th>numOfLesson</th>
-                                        <th>courseDuration</th>
-                                        <th>courseLevel</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="bg-primary">
+                                        <tr>
+                                            <th>Attribute</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>
+                                                <%= c.id %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Name</td>
+                                            <td>
+                                                <%= c.courseName %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Image</td>
+                                            <td>
+                                                <img src="<%= c.courseImage.url_1%>" alt="" height="50px" width="50px"
+                                                    style="border-radius: 50%;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Overview</td>
+                                            <td>
+                                                <%= c.courseOverview %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Requirement</td>
+                                            <td>
+                                                <%= c.courseRequirement %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Curriculum</td>
+                                            <td>
+                                                <%= c.courseCurriculum %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Prize</td>
+                                            <td>&#8377;<%= c.coursePrize %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Num Of Lesson</td>
+                                            <td>
+                                                <%= c.numOfLesson %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Duration</td>
+                                            <td>
+                                                <%= c.courseDuration %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Level</td>
+                                            <td>
+                                                <%= c.courseLevel %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teacher Name</td>
+                                            <td>
+                                                <%= c.teacherName %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teacher Designation</td>
+                                            <td>
+                                                <%= c.teacherDesignation %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teacher About</td>
+                                            <td>
+                                                <%= c.teacherAbout %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teacher Image</td>
+                                            <td>
+                                                <img src="<%= c.teacherImage.url_2%>" alt="" height="50px" width="50px"
+                                                    style="border-radius: 50%;">
+                                        </tr>
+                                        <tr>
+                                            <td>Exp Year</td>
+                                            <td>
+                                                <%= c.expYear %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>What learn after course (Point 1)</td>
+                                            <td>
+                                                <%= c.whatYouWillLearn1 %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>What learn after course (Point 2)</td>
+                                            <td>
+                                                <%= c.whatYouWillLearn2 %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>What learn after course (Point 3)</td>
+                                            <td>
+                                                <%= c.whatYouWillLearn3 %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Edit or Delete Course</td>
+                                            <td>
+                                                <!-- <a href="/admin/viewCourse/<%= c.id %>" class="btn btn-primary">View</a> -->
+                                                <a href="/admin/editCourse/<%= c.id %>" class="btn btn-info">Edit</a>
+                                                <a href="/admin/deleteCourse/<%= c.id %>"
+                                                    class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

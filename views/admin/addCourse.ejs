@@ -53,22 +53,26 @@
                                         <input type="file" name="courseImage" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Course Prize</label>
-                                        <input type="text" name="coursePrize" placeholder="399" class="form-control"
+                                        <label for="">Course Overview</label>
+                                        <input type="text" name="courseOverview"
+                                            placeholder="Overview of Course in 50 words" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Course Requirment</label>
+                                        <input type="text" name="courseRequirement"
+                                            placeholder="Requirment of Course in 50 words" class="form-control"
                                             required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Teacher Name</label>
-                                        <input type="text" name="teacherName" placeholder="Vikas Jain"
-                                            class="form-control" required>
+                                        <label for="">Course Curriculum</label>
+                                        <input type="text" name="courseCurriculum"
+                                            placeholder="Curriculum of Course in 50 words" class="form-control"
+                                            required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Experience Years</label>
-                                        <input type="text" name="expYear" placeholder="2" class="form-control" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="">Teacher Image</label>
-                                        <input type="file" name="teacherImage" class="form-control" required>
+                                        <label for="">Course Prize</label>
+                                        <input type="text" name="coursePrize" placeholder="399" class="form-control"
+                                            required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="">No. of Lessons</label>
@@ -92,6 +96,47 @@
                                             <option value="Advance">Advance
                                             </option>
                                         </select>
+                                    </div>
+                                    <h2>About Teacher</h2>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Name</label>
+                                        <input type="text" name="teacherName" placeholder="Vikas Jain"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Designation</label>
+                                        <input type="text" name="teacherDesignation" placeholder="Sr. Python Developer"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher About</label>
+                                        <input type="text" name="teacherAbout"
+                                            placeholder="Brief introduction in 50 words" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Image</label>
+                                        <input type="file" name="teacherImage" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Experience Years</label>
+                                        <input type="text" name="expYear" placeholder="2" class="form-control" required>
+                                    </div>
+                                    <h2>What will learn after this course</h2>
+                                    <!-- What will you learn after this course -->
+                                    <div class="mb-3">
+                                        <label for="">Point 1</label>
+                                        <input type="text" name="whatYouWillLearn1" placeholder="Python Basics"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Point 1</label>
+                                        <input type="text" name="whatYouWillLearn2" placeholder="Data Structures"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Point 3</label>
+                                        <input type="text" name="whatYouWillLearn3" placeholder="Functions and Modules"
+                                            class="form-control" required>
                                     </div>
 
                                     <button type="submit" class="btn btn-success text-white">Add Course</button>

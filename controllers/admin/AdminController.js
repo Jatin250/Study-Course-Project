@@ -182,13 +182,21 @@ class AdminController {
       const {
         courseName,
         courseImage,
+        courseOverview,
+        courseRequirement,
+        courseCurriculum,
         coursePrize,
-        teacherName,
-        expYear,
-        teacherImage,
         numOfLesson,
         courseDuration,
         courseLevel,
+        teacherName,
+        teacherDesignation,
+        teacherAbout,
+        teacherImage,
+        expYear,
+        whatYouWillLearn1,
+        whatYouWillLearn2,
+        whatYouWillLearn3,
       } = req.body;
 
       // image UpLoad
@@ -218,16 +226,24 @@ class AdminController {
           public_id_1: imageUpload1.public_id,
           url_1: imageUpload1.secure_url,
         },
+        courseOverview,
+        courseRequirement,
+        courseCurriculum,
         coursePrize,
+        numOfLesson,
+        courseDuration,
+        courseLevel,
         teacherName,
-        expYear,
+        teacherDesignation,
+        teacherAbout,
         teacherImage: {
           public_id_2: imageUpload2.public_id,
           url_2: imageUpload2.secure_url,
         },
-        numOfLesson,
-        courseDuration,
-        courseLevel,
+        expYear,
+        whatYouWillLearn1,
+        whatYouWillLearn2,
+        whatYouWillLearn3,
       });
       if (data) {
         req.flash("success", "Course Register Successfully..!!");

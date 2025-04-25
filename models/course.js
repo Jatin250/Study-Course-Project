@@ -49,6 +49,38 @@ const CourseSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    courseOverview: {
+      type: String,
+      required: true,
+    },
+    whatYouWillLearn1: {
+      type: String,
+      required: true,
+    },
+    whatYouWillLearn2: {
+      type: String,
+      required: true,
+    },
+    whatYouWillLearn3: {
+      type: String,
+      required: true,
+    },
+    courseRequirement: {
+      type: String,
+      required: true,
+    },
+    courseCurriculum: {
+      type: String,
+      required: true,
+    },
+    teacherDesignation: {
+      type: String,
+      required: true,
+    },
+    teacherAbout: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
