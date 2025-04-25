@@ -224,13 +224,10 @@ class FrontController {
   // courseDetails
   static courseDetails = async (req, res) => {
     try {
-      const { name, image } = req.udata;
       const id = req.params.id;
       const course = await CourseModel.findById(id);
       // console.log(course);
       res.render("course/courseDetails", {
-        n: name,
-        i: image,
         c: course,
       });
     } catch (error) {
