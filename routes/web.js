@@ -15,10 +15,10 @@ route.post("/registerUser", FrontController.registerUser);
 route.post("/userLogin", FrontController.userLogin);
 
 // contactByUser
-route.post("/contactByUser", FrontController.contactByUser);
+route.post("/contactByUser", checkAuth, FrontController.contactByUser);
 
 // courseDetails
-route.get("/courseDetails/:id", FrontController.courseDetails);
+route.get("/courseDetails/:id", checkAuth, FrontController.courseDetails);
 
 // profile
 route.get("/profile", checkAuth, FrontController.profile);

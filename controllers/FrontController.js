@@ -203,13 +203,19 @@ class FrontController {
       // console.log(req.body);
       const { name, email, phone, message } = req.body;
 
+      if (!name || !email || !phone || !message) {
+        req.flash("error", "All fields are Required.");
+        return res.redirect("/contact");
+      }
+
       await ContactModel.create({
         name,
         email,
         phone,
         message,
       });
-      res.redirect("/");
+      req.flash("success", "Submitted Successfully !");
+      res.redirect("/contact");
     } catch (error) {
       console.log(error);
     }
@@ -218,10 +224,13 @@ class FrontController {
   // courseDetails
   static courseDetails = async (req, res) => {
     try {
+      const { name, image } = req.udata;
       const id = req.params.id;
       const course = await CourseModel.findById(id);
       // console.log(course);
       res.render("course/courseDetails", {
+        n: name,
+        i: image,
         c: course,
       });
     } catch (error) {
