@@ -89,16 +89,10 @@
                                         <div class="course-details__tab-inner">
                                             <div class="course-details__overview">
                                                 <h3 class="course-details__overview-title">Course Overview</h3>
-                                                <p class="course-details__overview-text-1">Master Python Programming
-                                                    for Beginners and Beyond is a comprehensive course designed to
-                                                    take you from the fundamentals of Python to advanced topics,
-                                                    providing you with the skills needed to solve real-world
-                                                    problems. </p>
-                                                <p class="course-details__overview-text-2">Whether you're new to
-                                                    programming or looking to deepen your Python knowledge, this
-                                                    course covers essential concepts and hands-on projects to make
-                                                    you proficient in Python, one of the world's most versatile and
-                                                    in-demand programming languages.</p>
+                                                <p class="course-details__overview-text-1">
+                                                    <%= c.courseOverview %>
+                                                </p>
+
                                                 <h3 class="course-details__overview-title-2">What You Will Learn?
                                                 </h3>
                                                 <ul class="course-details__overview-points list-unstyled">
@@ -107,7 +101,9 @@
                                                             <span class="fas fa-check"></span>
                                                         </div>
                                                         <div class="course-details__overview-points-content">
-                                                            <h5>Python Basics:</h5>
+                                                            <h5>
+                                                                <%=c.whatYouWillLearn1%>
+                                                            </h5>
 
                                                         </div>
                                                     </li>
@@ -116,7 +112,9 @@
                                                             <span class="fas fa-check"></span>
                                                         </div>
                                                         <div class="course-details__overview-points-content">
-                                                            <h5>Data Structures:</h5>
+                                                            <h5>
+                                                                <%=c.whatYouWillLearn2%>
+                                                            </h5>
 
                                                         </div>
                                                     </li>
@@ -125,17 +123,17 @@
                                                             <span class="fas fa-check"></span>
                                                         </div>
                                                         <div class="course-details__overview-points-content">
-                                                            <h5>Functions and Modules:</h5>
+                                                            <h5>
+                                                                <%=c.whatYouWillLearn3%>
+                                                            </h5>
 
                                                         </div>
                                                     </li>
                                                 </ul>
                                                 <h3 class="course-details__overview-title-3">Requirement?</h3>
-                                                <p class="course-details__overview-text-3">Whether you're new to
-                                                    programming or looking to deepen your Python knowledge, this
-                                                    course covers essential concepts and hands-on projects to make
-                                                    you proficient in Python, one of the world's most versatile and
-                                                    in-demand programming languages.</p>
+                                                <p class="course-details__overview-text-3">
+                                                    <%=c.courseRequirement%>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -144,11 +142,9 @@
                                         <div class="course-details__tab-inner">
                                             <div class="course-details__curriculam">
                                                 <h3 class="course-details__curriculam-title">Course Curriculum</h3>
-                                                <p class="course-details__curriculam-text">Through engaging lessons
-                                                    and hands-on projects, you’ll learn Python fundamentals, data
-                                                    structures, object-oriented programming, and popular libraries
-                                                    like NumPy and pandas. You’ll also tackle real-world
-                                                    applications such as data analysis and web scraping.</p>
+                                                <p class="course-details__curriculam-text">
+                                                    <%=c.courseCurriculum%>
+                                                </p>
                                                 <div class="course-details__curriculam-faq">
                                                     <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                                         <div class="accrodion">
@@ -533,7 +529,9 @@
                                                             <h4>
                                                                 <%=c.teacherName%>
                                                             </h4>
-                                                            <p>Sr. Python Developer</p>
+                                                            <p>
+                                                                <%=c.teacherDesignation%>
+                                                            </p>
                                                         </div>
                                                         <div class="course-details__Instructor-view">
                                                             <a href="">View Details<span
@@ -546,21 +544,19 @@
                                                             </p>
                                                         </li>
                                                         <li>
-                                                            <p><span class="fas fa-play-circle"></span>76 Courses
+                                                            <p><span class="fas fa-play-circle"></span>
+                                                                <%=c.numOfLesson%> Courses
                                                             </p>
                                                         </li>
                                                     </ul>
-                                                    <p class="course-details__Instructor-text">Jordan Walk is an
-                                                        experienced Senior Python Developer with a strong focus on
-                                                        building scalable and efficient solutions.<br>
-                                                        With extensive knowledge in Python and backend development,
-                                                        Jordan has a track record of leading successful projects,
-                                                        optimizing performance, and implementing best practices.</p>
+                                                    <p class="course-details__Instructor-text">
+                                                        <%=c.teacherAbout%>
+                                                    </p>
                                                     <div class="course-details__Instructor-social">
-                                                        <a href="#"><span class="fab fa-linkedin-in"></span></a>
-                                                        <a href="#"><span class="fab fa-pinterest-p"></span></a>
-                                                        <a href="#"><span class="fab fa-facebook-f"></span></a>
-                                                        <a href="#"><span class="fab fa-instagram"></span></a>
+                                                        <a href=""><span class="fab fa-linkedin-in"></span></a>
+                                                        <a href=""><span class="fab fa-pinterest-p"></span></a>
+                                                        <a href=""><span class="fab fa-facebook-f"></span></a>
+                                                        <a href=""><span class="fab fa-instagram"></span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -965,14 +961,14 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="course-details__cuppon-box">
+                            <!-- <div class="course-details__cuppon-box">
                                 <h5 class="course-details__cuppon-title">Apply Coupon</h5>
                                 <form action="#" class="course-details__search-form">
                                     <input type="text" placeholder="Enter Coupon Code">
                                     <button type="submit">Apply</button>
                                 </form>
                                 <p class="course-details__cuppon-text">30 days Money back grantee</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
