@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Home | PN Portal</title>
+    <title>
+        <%= pageTitle %> | PN Portal
+    </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/my-image/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/my-image/favicon-32x32.png">
@@ -142,44 +144,45 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="main-menu__right">
-                                <div class="main-menu__btn-boxes">
-                                    <div class="main-menu__btn-box-1">
-                                        <a href="/login" class="thm-btn">Login</a>
-                                    </div>
-                                    <div class="main-menu__btn-box-2">
-                                        <a href="/register" class="thm-btn">Register</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <% if(false){%>
+                            <% if(!token) {%>
                                 <div class="main-menu__right">
-                                    <div>
-                                        <ul style="list-style: none; display: flex;">
-                                            <li class="nav-item my-auto">
-                                                <a class="nav-link text-gray" href="/courseDetails">
-                                                    <%= n %>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item dropdown my-auto">
-                                                <a href="/"
-                                                    class="nav-link d-block link-body-emphasis text-decoration-none dropdown-toggle text-white"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <img src="<%= i.url %>" alt="mdo" width="45" height="40"
-                                                        class="rounded-circle">
-                                                </a>
-                                                <ul class="dropdown-menu text-small">
-                                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                    <div class="main-menu__btn-boxes">
+                                        <div class="main-menu__btn-box-1">
+                                            <a href="/login" class="thm-btn">Login</a>
+                                        </div>
+                                        <div class="main-menu__btn-box-2">
+                                            <a href="/register" class="thm-btn">Register</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <%}%>
+                                <% }else{ %>
+                                    <div class="main-menu__right">
+                                        <div>
+                                            <ul style="list-style: none; display: flex;">
+                                                <li class="nav-item my-auto">
+                                                    <a class="nav-link text-gray" href="">
+                                                        <%= n %>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item dropdown my-auto">
+                                                    <a href="/"
+                                                        class="nav-link d-block link-body-emphasis text-decoration-none dropdown-toggle text-white"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="<%= i.url %>" alt="mdo" width="45" height="40"
+                                                            class="rounded-circle">
+                                                    </a>
+                                                    <ul class="dropdown-menu text-small">
+                                                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <% } %>
                         </div>
                     </div>
                 </div>

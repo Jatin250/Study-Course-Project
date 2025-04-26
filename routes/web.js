@@ -5,9 +5,13 @@ const route = express.Router();
 const checkAuth = require("../middleware/auth");
 
 route.get("/", FrontController.home);
+route.get("/Home", checkAuth, FrontController.home1);
 route.get("/about", FrontController.about);
+route.get("/aboutPage", checkAuth, FrontController.about1);
 route.get("/course", FrontController.course);
+route.get("/coursePage", checkAuth, FrontController.course1);
 route.get("/contact", FrontController.contact);
+route.get("/contactPage", checkAuth, FrontController.contact1);
 route.get("/login", FrontController.login);
 route.get("/register", FrontController.register);
 
@@ -18,7 +22,8 @@ route.post("/userLogin", FrontController.userLogin);
 route.post("/contactByUser", checkAuth, FrontController.contactByUser);
 
 // courseDetails
-route.get("/courseDetails/:id", checkAuth, FrontController.courseDetails);
+route.get("/courseDetails/:id", FrontController.courseDetails);
+route.get("/courseDetail/:id", checkAuth, FrontController.courseDetails1);
 
 // profile
 route.get("/profile", checkAuth, FrontController.profile);
