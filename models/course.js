@@ -15,27 +15,21 @@ const CourseSchema = mongoose.Schema(
         required: true,
       },
     },
+    courseOverview: {
+      type: String,
+      required: true,
+    },
+    courseRequirement: {
+      type: String,
+      required: true,
+    },
+    courseCurriculum: {
+      type: String,
+      required: true,
+    },
     coursePrize: {
       type: String,
       required: true,
-    },
-    teacherName: {
-      type: String,
-      required: true,
-    },
-    expYear: {
-      type: String,
-      required: true,
-    },
-    teacherImage: {
-      public_id_2: {
-        type: String,
-        required: true,
-      },
-      url_2: {
-        type: String,
-        required: true,
-      },
     },
     numOfLesson: {
       type: String,
@@ -49,7 +43,29 @@ const CourseSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    courseOverview: {
+    teacherName: {
+      type: String,
+      required: true,
+    },
+    teacherDesignation: {
+      type: String,
+      required: true,
+    },
+    teacherAbout: {
+      type: String,
+      required: true,
+    },
+    teacherImage: {
+      public_id_2: {
+        type: String,
+        required: true,
+      },
+      url_2: {
+        type: String,
+        required: true,
+      },
+    },
+    expYear: {
       type: String,
       required: true,
     },
@@ -62,22 +78,6 @@ const CourseSchema = mongoose.Schema(
       required: true,
     },
     whatYouWillLearn3: {
-      type: String,
-      required: true,
-    },
-    courseRequirement: {
-      type: String,
-      required: true,
-    },
-    courseCurriculum: {
-      type: String,
-      required: true,
-    },
-    teacherDesignation: {
-      type: String,
-      required: true,
-    },
-    teacherAbout: {
       type: String,
       required: true,
     },

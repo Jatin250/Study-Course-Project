@@ -314,13 +314,21 @@ class AdminController {
       const {
         courseName,
         courseImage,
+        courseOverview,
+        courseRequirement,
+        courseCurriculum,
         coursePrize,
-        teacherName,
-        expYear,
-        teacherImage,
         numOfLesson,
         courseDuration,
         courseLevel,
+        teacherName,
+        teacherDesignation,
+        teacherAbout,
+        teacherImage,
+        expYear,
+        whatYouWillLearn1,
+        whatYouWillLearn2,
+        whatYouWillLearn3,
       } = req.body;
 
       if (req.files) {
@@ -355,16 +363,24 @@ class AdminController {
               public_id_1: imageUpload1.public_id,
               url_1: imageUpload1.secure_url,
             },
+            courseOverview,
+            courseRequirement,
+            courseCurriculum,
             coursePrize,
+            numOfLesson,
+            courseDuration,
+            courseLevel,
             teacherName,
-            expYear,
+            teacherDesignation,
+            teacherAbout,
             teacherImage: {
               public_id_2: imageUpload2.public_id,
               url_2: imageUpload2.secure_url,
             },
-            numOfLesson,
-            courseDuration,
-            courseLevel,
+            expYear,
+            whatYouWillLearn1,
+            whatYouWillLearn2,
+            whatYouWillLearn3,
           };
         } else if (req.files.courseImage) {
           // console.log("test-1");
@@ -389,12 +405,20 @@ class AdminController {
               public_id_1: imageUpload.public_id,
               url_1: imageUpload.secure_url,
             },
+            courseOverview,
+            courseRequirement,
+            courseCurriculum,
             coursePrize,
-            teacherName,
-            expYear,
             numOfLesson,
             courseDuration,
             courseLevel,
+            teacherName,
+            teacherDesignation,
+            teacherAbout,
+            expYear,
+            whatYouWillLearn1,
+            whatYouWillLearn2,
+            whatYouWillLearn3,
           };
         } else {
           // console.log("test-2");
@@ -415,28 +439,44 @@ class AdminController {
           );
           var data = {
             courseName,
+            courseOverview,
+            courseRequirement,
+            courseCurriculum,
             coursePrize,
+            numOfLesson,
+            courseDuration,
+            courseLevel,
             teacherName,
-            expYear,
+            teacherDesignation,
+            teacherAbout,
             teacherImage: {
               public_id_2: imageUpload.public_id,
               url_2: imageUpload.secure_url,
             },
-            numOfLesson,
-            courseDuration,
-            courseLevel,
+            expYear,
+            whatYouWillLearn1,
+            whatYouWillLearn2,
+            whatYouWillLearn3,
           };
         }
       } else {
         // console.log("test-3");
         var data = {
           courseName,
+          courseOverview,
+          courseRequirement,
+          courseCurriculum,
           coursePrize,
-          teacherName,
-          expYear,
           numOfLesson,
           courseDuration,
           courseLevel,
+          teacherName,
+          teacherDesignation,
+          teacherAbout,
+          expYear,
+          whatYouWillLearn1,
+          whatYouWillLearn2,
+          whatYouWillLearn3,
         };
       }
 

@@ -1,7 +1,6 @@
 <%- include('./header.ejs') %>
     <%- include('./sidebar.ejs')%>
 
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -44,23 +43,24 @@
                                             class="form-control">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="">Course Overview</label>
+                                        <input type="text" value="<%= c.courseOverview %>" name="courseOverview"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Course Requirment</label>
+                                        <input type="text" value="<%= c.courseRequirement %>" name="courseRequirement"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Course Curriculum</label>
+                                        <input type="text" value="<%= c.courseCurriculum %>" name="courseCurriculum"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="">Course Prize</label>
                                         <input type="text" value="<%= c.coursePrize %>" name="coursePrize"
                                             placeholder="399" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="">Teacher Name</label>
-                                        <input type="text" value="<%= c.teacherName %>" name="teacherName"
-                                            placeholder="Vikas Jain" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="">Experience Years</label>
-                                        <input type="text" value="<%= c.expYear %>" name="expYear" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="">Teacher Image</label>
-                                        <input type="file" value="<%= c.teacherImage %>" name="teacherImage"
-                                            class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label for="">No. of Lessons</label>
@@ -88,6 +88,50 @@
                                             </option>
                                         </select>
                                     </div>
+                                    <h2>About Teacher</h2>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Name</label>
+                                        <input type="text" value="<%= c.teacherName %>" name="teacherName"
+                                            placeholder="Vikas Jain" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Designation</label>
+                                        <input type="text" value="<%= c.teacherDesignation %>" name="teacherDesignation"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher About</label>
+                                        <input type="text" value="<%= c.teacherAbout %>" name="teacherAbout"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Teacher Image</label>
+                                        <input type="file" value="<%= c.teacherImage %>" name="teacherImage"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Experience Years</label>
+                                        <input type="text" value="<%= c.expYear %>" name="expYear" class="form-control">
+                                    </div>
+                                    <h2>What will learn after this course</h2>
+                                    <!-- What will you learn after this course -->
+                                    <div class="mb-3">
+                                        <label for="">Point 1</label>
+                                        <input type="text" value="<%= c.whatYouWillLearn1 %>" name="whatYouWillLearn1"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Point 1</label>
+                                        <input type="text" value="<%= c.whatYouWillLearn2 %>" name="whatYouWillLearn2"
+                                            class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Point 3</label>
+                                        <input type="text" value="<%= c.whatYouWillLearn3 %>" name="whatYouWillLearn3"
+                                            class="form-control">
+                                    </div>
+
+
 
                                     <button type="submit" class="btn btn-success text-white">Update</button>
                                 </form>
@@ -103,8 +147,5 @@
 
         </div>
         <!-- /.content-wrapper -->
-
-
-
 
         <%- include('./footer.ejs') %>
