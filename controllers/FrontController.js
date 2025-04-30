@@ -2,7 +2,6 @@ const UserModel = require("../models/user");
 const ContactModel = require("../models/contact");
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
-const jwt = require("jsonwebtoken");
 const CourseModel = require("../models/course");
 
 // configuration Setup
@@ -15,36 +14,10 @@ cloudinary.config({
 class FrontController {
   static home = async (req, res) => {
     try {
-      const { token } = req.cookies;
       let pageTitle = "Home";
-      if (!token) {
-        const course = await CourseModel.find();
-        res.render("home", {
-          pageTitle: pageTitle,
-          token: token,
-          c: course,
-          msg: req.flash("success"),
-          msg1: req.flash("error"),
-        });
-      } else {
-        res.redirect("/Home");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static home1 = async (req, res) => {
-    try {
-      const { token } = req.cookies;
-      const { name, image } = req.udata;
       const course = await CourseModel.find();
-      let pageTitle = "Home";
       res.render("home", {
         pageTitle: pageTitle,
-        n: name,
-        i: image,
-        token: token,
         c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
@@ -56,36 +29,10 @@ class FrontController {
 
   static about = async (req, res) => {
     try {
-      const { token } = req.cookies;
       let pageTitle = "About";
-      if (!token) {
-        const course = await CourseModel.find();
-        res.render("about", {
-          pageTitle: pageTitle,
-          token: token,
-          c: course,
-          msg: req.flash("success"),
-          msg1: req.flash("error"),
-        });
-      } else {
-        res.redirect("/aboutPage");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static about1 = async (req, res) => {
-    try {
-      const { token } = req.cookies;
-      const { name, image } = req.udata;
       const course = await CourseModel.find();
-      let pageTitle = "About";
       res.render("about", {
         pageTitle: pageTitle,
-        n: name,
-        i: image,
-        token: token,
         c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
@@ -97,36 +44,10 @@ class FrontController {
 
   static course = async (req, res) => {
     try {
-      const { token } = req.cookies;
       let pageTitle = "Course";
-      if (!token) {
-        const course = await CourseModel.find();
-        res.render("course", {
-          pageTitle: pageTitle,
-          token: token,
-          c: course,
-          msg: req.flash("success"),
-          msg1: req.flash("error"),
-        });
-      } else {
-        res.redirect("/coursePage");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static course1 = async (req, res) => {
-    try {
-      const { token } = req.cookies;
-      const { name, image } = req.udata;
       const course = await CourseModel.find();
-      let pageTitle = "Course";
       res.render("course", {
         pageTitle: pageTitle,
-        n: name,
-        i: image,
-        token: token,
         c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
@@ -138,36 +59,10 @@ class FrontController {
 
   static contact = async (req, res) => {
     try {
-      const { token } = req.cookies;
       let pageTitle = "Contact";
-      if (!token) {
-        const course = await CourseModel.find();
-        res.render("contact", {
-          pageTitle: pageTitle,
-          token: token,
-          c: course,
-          msg: req.flash("success"),
-          msg1: req.flash("error"),
-        });
-      } else {
-        res.redirect("/contactPage");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static contact1 = async (req, res) => {
-    try {
-      const { token } = req.cookies;
-      const { name, image } = req.udata;
       const course = await CourseModel.find();
-      let pageTitle = "Contact";
       res.render("contact", {
         pageTitle: pageTitle,
-        n: name,
-        i: image,
-        token: token,
         c: course,
         msg: req.flash("success"),
         msg1: req.flash("error"),
@@ -178,8 +73,10 @@ class FrontController {
   };
 
   static login = async (req, res) => {
+    let pageTitle = "Login";
     try {
       res.render("login", {
+        pageTitle: pageTitle,
         msg: req.flash("success"),
         msg1: req.flash("error"),
       });
@@ -189,8 +86,10 @@ class FrontController {
   };
 
   static register = async (req, res) => {
+    let pageTitle = "Register";
     try {
-      res.render("register", {
+      res.render("Register", {
+        pageTitle: pageTitle,
         msg: req.flash("success"),
         msg1: req.flash("error"),
       });
@@ -272,8 +171,17 @@ class FrontController {
                 secure: true,
                 maxAge: 3600000, // Expires in 1 hrs
               });
+              req.session.user = {
+                name: user.name,
+                email: user.email,
+                image: user.image,
+              };
               res.redirect("/admin/dashboard");
             } else if (user.role == "student") {
+              req.session.user = {
+                name: user.name,
+                email: user.email,
+              };
               //token create
               var jwt = require("jsonwebtoken");
               let token = jwt.sign({ ID: user.id }, "sdjhdjwcdsk");
@@ -283,13 +191,11 @@ class FrontController {
                 secure: true,
                 maxAge: 3600000, // Expires in 1 hrs
               });
-              if (req.session) {
-                req.session.destroy((err) => {
-                  if (err) {
-                    console.error("Error destroying session:", err);
-                  }
-                });
-              }
+              req.session.user = {
+                name: user.name,
+                email: user.email,
+                image: user.image,
+              };
               res.redirect("/");
             } else {
               req.flash("error", "Please verify your Email.");
@@ -336,38 +242,14 @@ class FrontController {
   // courseDetails
   static courseDetails = async (req, res) => {
     try {
-      const { token } = req.cookies;
       const id = req.params.id;
-      let pageTitle = "Course Details";
-      if (!token) {
-        const course = await CourseModel.findById(id);
-        res.render("course/courseDetails", {
-          pageTitle: pageTitle,
-          token: token,
-          c: course,
-        });
-      } else {
-        const id = req.params.id;
-        res.redirect(`/courseDetail/${id}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static courseDetails1 = async (req, res) => {
-    try {
-      const { token } = req.cookies;
-      const { name, image } = req.udata;
-      const id = req.params.id;
+      let pageTitle = "Home";
       const course = await CourseModel.findById(id);
-      let pageTitle = "Contact";
       res.render("course/courseDetails", {
         pageTitle: pageTitle,
-        n: name,
-        i: image,
-        token: token,
         c: course,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
       });
     } catch (error) {
       console.log(error);
@@ -476,13 +358,8 @@ class FrontController {
   // logout
   static logout = async (req, res) => {
     try {
-      const course = await CourseModel.find();
-      let pageTitle = "Login";
-      res.render("login", {
-        pageTitle: pageTitle,
-        c: course,
-        msg: req.flash("success"),
-        msg1: req.flash("error"),
+      req.session.destroy(() => {
+        res.redirect("/");
       });
     } catch (error) {
       console.log(error);

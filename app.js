@@ -20,13 +20,19 @@ const flash = require("connect-flash");
 app.use(
   session({
     secret: "secret",
-    cookie: { maxAge: 60000 },
+    cookie: { httpOnly: true },
     resave: false,
     saveUninitialized: false,
   })
 );
 //flash message
 app.use(flash());
+
+// Middleware to pass user to all views
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
