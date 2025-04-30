@@ -3,6 +3,7 @@ const FrontController = require("../controllers/FrontController");
 const AdminController = require("../controllers/admin/AdminController");
 const route = express.Router();
 const checkAuth = require("../middleware/auth");
+const adminRole = require("../middleware/adminRole");
 
 route.get("/", FrontController.home);
 route.get("/about", FrontController.about);
@@ -30,18 +31,78 @@ route.post("/changePassword", checkAuth, FrontController.changePassword);
 route.get("/logout", FrontController.logout);
 
 // admin
-route.get("/admin/dashboard", checkAuth, AdminController.dashboard);
-route.get("/admin/contactDisplay", checkAuth, AdminController.contactDisplay);
-route.get("/admin/allCourses", checkAuth, AdminController.allCourses);
-route.get("/admin/addCourse", checkAuth, AdminController.addCourse);
-route.get("/admin/update_pass", checkAuth, AdminController.update_pass);
-route.get("/admin/profile_update", checkAuth, AdminController.profile_update);
-route.post("/admin/changePassword", checkAuth, AdminController.changePassword);
-route.post("/admin/updateProfile", checkAuth, AdminController.updateProfile);
-route.post("/admin/addNewCourse", checkAuth, AdminController.addNewCourse);
-route.get("/admin/viewCourse/:id", checkAuth, AdminController.viewCourse);
-route.get("/admin/editCourse/:id", checkAuth, AdminController.editCourse);
-route.get("/admin/deleteCourse/:id", checkAuth, AdminController.deleteCourse);
+route.get(
+  "/admin/dashboard",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.dashboard
+);
+route.get(
+  "/admin/contactDisplay",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.contactDisplay
+);
+route.get(
+  "/admin/allCourses",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.allCourses
+);
+route.get(
+  "/admin/addCourse",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.addCourse
+);
+route.get(
+  "/admin/update_pass",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.update_pass
+);
+route.get(
+  "/admin/profile_update",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.profile_update
+);
+route.post(
+  "/admin/changePassword",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.changePassword
+);
+route.post(
+  "/admin/updateProfile",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.updateProfile
+);
+route.post(
+  "/admin/addNewCourse",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.addNewCourse
+);
+route.get(
+  "/admin/viewCourse/:id",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.viewCourse
+);
+route.get(
+  "/admin/editCourse/:id",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.editCourse
+);
+route.get(
+  "/admin/deleteCourse/:id",
+  checkAuth,
+  adminRole("admin"),
+  AdminController.deleteCourse
+);
 route.post(
   "/admin/update_Course/:id",
   checkAuth,
