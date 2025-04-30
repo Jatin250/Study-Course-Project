@@ -3,6 +3,7 @@ const UserModel = require("../../models/user");
 const cloudinary = require("cloudinary");
 const bcrypt = require("bcrypt");
 const CourseModel = require("../../models/course");
+const LectureModel = require("../../models/lecture");
 
 // configuration Setup
 cloudinary.config({
@@ -50,6 +51,8 @@ class AdminController {
         i: image,
         e: email,
         c: course,
+        msg: req.flash("error"),
+        msg1: req.flash("success"),
       });
     } catch (error) {
       console.log(error);
@@ -483,6 +486,54 @@ class AdminController {
       await CourseModel.findByIdAndUpdate(id, data);
       req.flash("success", "Course updated successfully by Admin.");
       res.redirect("/admin/allCourses");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static addLecture = async (req, res) => {
+    try {
+      const { name, image, email } = req.udata;
+      res.render("admin/addLecture", {
+        n: name,
+        i: image,
+        e: email,
+        msg: req.flash("error"),
+        msg1: req.flash("success"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static addNewLecture = async (req, res) => {
+    try {
+      // console.log(req.body);
+      const { lectureTitle, lectureIsFree } = req.body;
+
+      // video UpLoad
+      // console.log(req.files.lectureVideo);
+      const file = req.files.lectureVideo;
+      const videoUpload = await cloudinary.uploader.upload(file.tempFilePath, {
+        folder: "userprofile",
+      });
+      // console.log(videoUpload)
+
+      const data = await LectureModel.create({
+        lectureTitle,
+        lectureVideo: {
+          public_id: videoUpload.public_id,
+          url: videoUpload.secure_url,
+        },
+        lectureIsFree,
+      });
+      if (data) {
+        req.flash("success", "Lecture Added");
+        res.redirect("/admin/allCourses");
+      } else {
+        req.flash("error", "not found");
+        req.redirect("/admin/allCourses");
+      }
     } catch (error) {
       console.log(error);
     }

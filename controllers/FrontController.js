@@ -98,6 +98,19 @@ class FrontController {
     }
   };
 
+  static myLearning = async (req, res) => {
+    let pageTitle = "My Learning";
+    try {
+      res.render("myLearning", {
+        pageTitle: pageTitle,
+        msg: req.flash("success"),
+        msg1: req.flash("error"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // registerUser
   static registerUser = async (req, res) => {
     try {
