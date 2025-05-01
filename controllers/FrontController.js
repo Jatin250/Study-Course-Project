@@ -98,6 +98,7 @@ class FrontController {
     }
   };
 
+  // my Learning
   static myLearning = async (req, res) => {
     let pageTitle = "My Learning";
     try {
@@ -256,7 +257,7 @@ class FrontController {
   static courseDetails = async (req, res) => {
     try {
       const id = req.params.id;
-      let pageTitle = "Home";
+      let pageTitle = "Course Details";
       const course = await CourseModel.findById(id);
       res.render("course/courseDetails", {
         pageTitle: pageTitle,
