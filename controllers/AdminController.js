@@ -1,9 +1,9 @@
-const contactModel = require("../../models/contact");
-const UserModel = require("../../models/user");
+const contactModel = require("../models/contact");
+const UserModel = require("../models/user");
 const cloudinary = require("cloudinary");
 const bcrypt = require("bcrypt");
-const CourseModel = require("../../models/course");
-const LectureModel = require("../../models/lecture");
+const CourseModel = require("../models/course");
+const LectureModel = require("../models/lecture");
 
 // configuration Setup
 cloudinary.config({
